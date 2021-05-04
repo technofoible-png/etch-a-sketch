@@ -1,7 +1,9 @@
 const main = document.querySelector(".main");
 const reset = document.querySelector(".reset");
+const newbtn = document.querySelector(".newbtn");
 
-
+// Default state on page load
+makeGrid(10);
 
 // Colors in grid
 function drawOn(event) {
@@ -10,6 +12,9 @@ function drawOn(event) {
 
 // Reset button handler
 reset.addEventListener("click", clearBoard);
+
+// Change grid button handler
+newbtn.addEventListener("click", newGrid);
 
 // Erases the grid
 function clearBoard () {
@@ -27,5 +32,20 @@ function makeGrid (size) {
         main.style.gridTemplateRows = `repeat(${size}, 1fr)`;
         pad.addEventListener("mouseover", drawOn);
         main.appendChild(pad);
+    }
+}
+
+// Removes old grid, asks for size to make grid
+function newGrid () {
+    let gridItems = document.querySelectorAll(".pad");
+    gridItems.forEach(gridItem => gridItem.remove());
+
+    let size = prompt("Choose a new grid size:");
+    if (size > 100) {
+        size = prompt("Please choose a smaller size:");
+    } else if (size === null) {
+        makeGrid(16);
+    } else {
+        makeGrid(size);
     }
 }
