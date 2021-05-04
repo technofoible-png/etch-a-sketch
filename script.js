@@ -42,7 +42,8 @@ function newGrid () {
 
     let size = prompt("Choose a new grid size:");
     if (size > 100) {
-        size = prompt("Please choose a smaller size:");
+        alert("Selection too large.")
+        return newGrid();
     } else if (size === null) {
         makeGrid(16);
     } else {
