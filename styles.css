@@ -7,8 +7,6 @@
 
 .main {
     display: grid;
-    grid-template-columns: repeat(4,1fr);
-
     border-style: solid;
     background-color: cornsilk;
     padding: 10px;
@@ -18,7 +16,7 @@
 }
 
 .pad {
-    outline-style: dotted;
+    border-style: solid;
 }
 
 .marked {
